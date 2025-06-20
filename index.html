@@ -2,108 +2,85 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; frame-src 'none';">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="Referrer-Policy" content="no-referrer">
-    <title>Азат & Диана - Свадьба 28.08.2025</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Азат & Диана - Свадьба 28.06.2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        html, body {
-            height: 100%;
-            overflow: hidden;
-            touch-action: manipulation;
         }
         
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #fff0f5 0%, #fff9f9 100%);
             color: #5d4037;
-            height: 100vh;
+            min-height: 100vh;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         
-        /* Анимированный фон */
+        /* Анимированный фон - более мягкий */
         .background-animation {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
             overflow: hidden;
+            pointer-events: none;
         }
         
-        .heart {
+        .symbol {
             position: absolute;
-            color: rgba(255, 192, 203, 0.6);
-            font-size: 28px;
-            animation: float 18s infinite linear;
+            animation: float 25s infinite linear;
             pointer-events: none;
             user-select: none;
-            will-change: transform;
+            opacity: 0.2; /* Уменьшена прозрачность */
+            transition: opacity 0.5s;
         }
         
         @keyframes float {
             0% {
-                transform: translateY(100vh) rotate(0deg);
+                transform: translateY(100vh) rotate(0deg) scale(0.8);
                 opacity: 0;
             }
             10% {
-                opacity: 1;
+                opacity: 0.3;
             }
             90% {
-                opacity: 1;
+                opacity: 0.3;
             }
             100% {
-                transform: translateY(-100px) rotate(360deg);
+                transform: translateY(-100px) rotate(360deg) scale(0.8);
                 opacity: 0;
             }
         }
         
         .container {
-            width: 95%;
-            max-width: 900px;
-            height: 95vh;
-            max-height: 95vh;
-            background: rgba(255, 255, 255, 0.97);
-            border-radius: 25px;
-            box-shadow: 0 25px 70px rgba(180, 90, 120, 0.3);
-            padding: 20px 30px;
-            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
             position: relative;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
         }
         
         .header {
-            margin-bottom: 10px;
-            flex-shrink: 0;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 30px;
         }
         
         .couple-frame {
-            width: 160px;
-            height: 160px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            margin: 0 auto;
-            border: 10px solid #f8e0e9;
-            box-shadow: 0 0 30px rgba(180, 90, 120, 0.25);
+            margin: 0 auto 25px;
+            border: 12px solid #f8e0e9;
+            box-shadow: 0 0 40px rgba(180, 90, 120, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -114,7 +91,7 @@
         
         .couple-frame::before {
             content: "А&Д";
-            font-size: 80px;
+            font-size: 100px;
             font-weight: bold;
             color: rgba(255, 255, 255, 0.5);
             font-family: 'Playfair Display', serif;
@@ -122,97 +99,105 @@
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            margin: 15px 0 8px;
+            font-size: 4.5rem;
+            margin: 20px 0 10px;
             color: #b76e79;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
             line-height: 1.1;
         }
         
         .subtitle {
-            font-size: 1.7rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
             color: #795548;
             font-weight: 500;
             line-height: 1.2;
         }
         
-        .content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 5px 0;
-            overflow: hidden;
+        .section {
+            background: rgba(255, 255, 255, 0.95); /* Более плотный фон */
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(150, 70, 100, 0.2);
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
         }
         
         .invitation {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            margin: 10px 0 15px;
-            padding: 20px;
-            background: rgba(247, 232, 237, 0.65);
-            border-radius: 20px;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            text-align: center;
             position: relative;
             font-weight: 500;
-            flex-shrink: 0;
             z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .invitation::before, .invitation::after {
             content: """;
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 6rem;
             color: #e0b0b0;
             position: absolute;
-            opacity: 0.3;
+            opacity: 0.2; /* Уменьшена прозрачность */
             line-height: 1;
             z-index: -1;
         }
         
         .invitation::before {
-            top: -15px;
-            left: 10px;
+            top: -30px;
+            left: -30px;
         }
         
         .invitation::after {
-            bottom: -35px;
-            right: 10px;
+            bottom: -50px;
+            right: -30px;
             transform: rotate(180deg);
         }
         
-        .upload-section {
-            margin: 10px 0;
-            flex-shrink: 0;
-        }
-        
-        .upload-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
             color: #b76e79;
             font-weight: 600;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #ffb6c1, #b76e79);
+            margin: 15px auto 0;
+            border-radius: 2px;
         }
         
         .upload-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
             flex-wrap: wrap;
+            margin: 30px 0;
         }
         
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 30px;
-            border-radius: 50px;
-            font-size: 1.3rem;
+            padding: 20px 45px;
+            border-radius: 60px;
+            font-size: 1.6rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            min-width: 300px;
             position: relative;
             overflow: hidden;
         }
@@ -234,18 +219,13 @@
         }
         
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn:active {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
         }
         
         .btn i {
-            margin-right: 12px;
-            font-size: 1.8rem;
+            margin-right: 15px;
+            font-size: 2.2rem;
             position: relative;
             z-index: 1;
         }
@@ -260,106 +240,264 @@
             color: white;
         }
         
+        .youtube {
+            background: linear-gradient(135deg, #ff0000, #e52d27);
+            color: white;
+        }
+        
         .date {
-            margin-top: 15px;
-            font-size: 1.3rem;
+            margin-top: 20px;
+            font-size: 1.8rem;
             color: #795548;
             font-style: italic;
             font-weight: 500;
-            flex-shrink: 0;
+            text-align: center;
         }
         
         .floral-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            pointer-events: none;
+            z-index: 0;
+            border: 2px dashed #e0b0b0;
+            border-radius: 20px;
+            opacity: 0.2; /* Уменьшена прозрачность */
+        }
+        
+        /* Love Story Section */
+        .lovestory-section {
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lovestory-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timer-container {
+            background: rgba(255, 240, 245, 0.9); /* Более плотный фон */
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timer-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #5d4037;
+        }
+        
+        #timer {
+            font-size: 3.5rem;
+            font-weight: bold;
+            font-family: monospace;
+            color: #b76e79;
+            background: #fff;
+            padding: 15px 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+        
+        .timer-label {
+            font-size: 1.4rem;
+            margin-top: 10px;
+            color: #795548;
+            transition: all 0.5s ease;
+        }
+        
+        /* Видео в таймере */
+        .timer-video-container {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            position: relative;
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Мягче тень */
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        .timer-video-container.show {
+            display: block;
+            animation: fadeInExpand 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInExpand {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .timer-video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 0;
+            border: none;
         }
         
-        .floral-border::before, .floral-border::after {
-            content: "❀";
-            position: absolute;
-            color: #e0b0b0;
-            font-size: 28px;
-            opacity: 0.7;
+        .lovestory-link {
+            display: none;
+            margin: 40px 0 20px;
+            animation: fadeIn 1s ease;
         }
         
-        .floral-border::before {
-            top: 15px;
-            left: 20px;
-        }
-        
-        .floral-border::after {
-            bottom: 15px;
-            right: 20px;
-            transform: rotate(180deg);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .footer {
-            margin-top: 10px;
-            font-size: 1.1rem;
+            text-align: center;
+            padding: 40px 0 20px;
+            font-size: 1.4rem;
             color: #a1887f;
             font-weight: 500;
-            flex-shrink: 0;
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: #b76e79;
+            animation: bounce 2s infinite;
+            opacity: 0.6; /* Менее заметный индикатор */
+            z-index: 100;
+            cursor: pointer;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-15px);} /* Меньше прыжок */
+            60% {transform: translateX(-50%) translateY(-7px);}
         }
         
         @media (max-width: 900px) {
-            .container {
-                padding: 15px 20px;
-                height: 97vh;
+            .section {
+                padding: 30px 20px;
             }
             
             h1 {
-                font-size: 2.8rem;
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.8rem;
             }
             
             .couple-frame {
-                width: 140px;
-                height: 140px;
+                width: 170px;
+                height: 170px;
             }
             
             .couple-frame::before {
-                font-size: 70px;
+                font-size: 80px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                min-width: 250px;
+                padding: 18px 35px;
+                font-size: 1.4rem;
+            }
+            
+            .invitation {
+                font-size: 1.3rem;
+            }
+            
+            .date {
+                font-size: 1.5rem;
+            }
+            
+            .timer-container {
+                padding: 20px;
+            }
+            
+            #timer {
+                font-size: 2.8rem;
+                padding: 12px 25px;
+            }
+            
+            .timer-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 650px) {
+            h1 {
+                font-size: 2.8rem;
             }
             
             .subtitle {
                 font-size: 1.5rem;
             }
             
+            .upload-buttons {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
             .btn {
-                min-width: 200px;
-                padding: 14px 25px;
-                font-size: 1.2rem;
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .couple-frame {
+                width: 150px;
+                height: 150px;
             }
             
             .invitation {
-                font-size: 1.15rem;
-                padding: 15px;
-                margin: 8px 0 12px;
+                font-size: 1.2rem;
+                padding: 0 10px;
             }
             
-            .upload-title {
-                font-size: 1.3rem;
+            .invitation::before, .invitation::after {
+                font-size: 4rem;
             }
             
             .date {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             
-            .footer {
-                font-size: 1rem;
+            .lovestory-section {
+                padding: 30px 15px;
+            }
+            
+            #timer {
+                font-size: 2.2rem;
+            }
+            
+            .timer-title {
+                font-size: 1.3rem;
             }
         }
         
-        @media (max-width: 650px) {
-            .container {
-                padding: 12px 15px;
-                height: 98vh;
-            }
-            
+        @media (max-width: 480px) {
             h1 {
                 font-size: 2.4rem;
             }
@@ -368,27 +506,9 @@
                 font-size: 1.3rem;
             }
             
-            .upload-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 100%;
-                min-width: auto;
-            }
-            
-            .invitation::before, .invitation::after {
-                font-size: 3rem;
-            }
-            
-            .floral-border::before, .floral-border::after {
-                font-size: 22px;
-            }
-            
             .couple-frame {
-                width: 120px;
-                height: 120px;
+                width: 130px;
+                height: 130px;
                 border-width: 8px;
             }
             
@@ -396,230 +516,237 @@
                 font-size: 60px;
             }
             
-            .invitation {
-                font-size: 1.05rem;
-                line-height: 1.5;
-                padding: 15px 10px;
+            .section-title {
+                font-size: 1.6rem;
             }
             
-            .date {
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-height: 700px) {
-            .container {
-                padding: 10px 15px;
-                height: 98vh;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-                margin: 8px 0 5px;
-            }
-            
-            .subtitle {
+            .btn {
+                padding: 16px 25px;
                 font-size: 1.2rem;
-                margin-bottom: 5px;
-            }
-            
-            .couple-frame {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .couple-frame::before {
-                font-size: 50px;
             }
             
             .invitation {
-                font-size: 1rem;
-                margin: 5px 0 10px;
-                padding: 12px 10px;
-                line-height: 1.5;
-            }
-            
-            .upload-title {
                 font-size: 1.1rem;
-                margin-bottom: 12px;
-            }
-            
-            .btn {
-                padding: 12px 20px;
-                font-size: 1.1rem;
-                min-width: auto;
             }
             
             .date {
-                font-size: 1rem;
-                margin-top: 8px;
+                font-size: 1.1rem;
             }
             
-            .footer {
-                font-size: 0.9rem;
-                margin-top: 5px;
-            }
-            
-            .invitation::before, .invitation::after {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (max-height: 600px) {
-            .container {
-                height: 99vh;
-                padding: 8px 12px;
-            }
-            
-            .couple-frame {
-                width: 80px;
-                height: 80px;
-                border-width: 6px;
-            }
-            
-            .couple-frame::before {
-                font-size: 40px;
-            }
-            
-            h1 {
+            #timer {
                 font-size: 1.8rem;
-            }
-            
-            .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .invitation {
-                font-size: 0.9rem;
-                padding: 8px 10px;
-                margin: 5px 0 8px;
-            }
-            
-            .upload-title {
-                font-size: 1rem;
-                margin-bottom: 10px;
-            }
-            
-            .btn {
-                padding: 10px 15px;
-                font-size: 1rem;
-            }
-            
-            .date {
-                font-size: 0.9rem;
-            }
-            
-            .footer {
-                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Анимированный фон с сердечками -->
+    <!-- Анимированный фон с мягким эффектом -->
     <div class="background-animation" id="backgroundAnimation"></div>
     
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    
     <div class="container">
-        <div class="floral-border"></div>
-        
         <div class="header">
             <div class="couple-frame"></div>
             <h1>Азат & Диана</h1>
-            <div class="subtitle">28 августа 2025 года</div>
+            <div class="subtitle">28 июня 2025 года</div>
         </div>
         
-        <div class="content">
+        <div class="section">
+            <div class="floral-border"></div>
             <div class="invitation">
                 Дорогие гости! Спасибо, что были с нами в этот особенный день. 
                 Пожалуйста, делитесь своими фотографиями с нашего праздника через кнопки ниже. 
                 Каждый ваш снимок для нас бесценен и сохранит память о самых важных моментах!
             </div>
-            
-            <div class="upload-section">
-                <div class="upload-title">Присылайте ваши фотографии</div>
-                <div class="upload-buttons">
-                    <a href="https://t.me/+OH28usM_1iNmOGUy" target="_blank" rel="noopener noreferrer" class="btn telegram">
-                        <i class="fab fa-telegram"></i> Telegram
-                    </a>
-                    <a href="https://chat.whatsapp.com/GiwdJV0xB629bkc2xE8IKX" target="_blank" rel="noopener noreferrer" class="btn whatsapp">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Присылайте ваши фотографии</h2>
+            <div class="upload-buttons">
+                <a href="https://t.me/+OH28usM_1iNmOGUy" target="_blank" rel="noopener noreferrer" class="btn telegram">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="https://chat.whatsapp.com/GiwdJV0xB629bkc2xE8IKX" target="_blank" rel="noopener noreferrer" class="btn whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            <div class="date">Мы поженились 28 июня 2025 года</div>
+        </div>
+        
+        <!-- Love Story Section -->
+        <div class="section lovestory-section">
+            <h2 class="section-title">Наше Love Story</h2>
+            <div class="lovestory-content">
+                <div class="timer-container">
+                    <div class="timer-title">Видео будет доступно через:</div>
+                    <div id="timer">00:00:00</div>
+                    <div class="timer-label">дней : часов : минут : секунд</div>
+                    
+                    <!-- Контейнер для видео в таймере -->
+                    <div class="timer-video-container" id="timerVideoContainer">
+                        <iframe id="youtubeVideo" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="lovestory-link" id="youtubeLink">
+                    <a href="https://youtu.be/FbVcmJBDeOo?feature=shared" target="_blank" rel="noopener noreferrer" class="btn youtube">
+                        <i class="fab fa-youtube"></i> Смотреть Love Story
                     </a>
                 </div>
             </div>
-            
-            <div class="date">Мы поженились 28 августа 2025 года</div>
         </div>
         
         <div class="footer">С любовью, Азат и Диана</div>
     </div>
 
     <script>
-        // Гарантируем, что страница не будет прокручиваться
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-        
-        window.addEventListener('resize', function() {
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.overflow = 'hidden';
-        });
-        
-        // Оптимизированная анимация сердечек
+        // Создание анимированных символов на фоне - мягкий эффект
         document.addEventListener('DOMContentLoaded', function() {
             const background = document.getElementById('backgroundAnimation');
-            const heartsCount = 15;
-            const hearts = [];
+            const symbolsCount = 15; // Уменьшено количество символов
             
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤';
+            // Функция для создания символа
+            function createSymbol() {
+                const symbol = document.createElement('div');
+                symbol.classList.add('symbol');
                 
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 20 + 15) + 's';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                heart.style.opacity = 0.3 + Math.random() * 0.4;
+                // Выбор случайного символа
+                const symbols = ['❤', '🖇️'];
+                const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+                symbol.innerHTML = randomSymbol;
                 
-                background.appendChild(heart);
-                hearts.push(heart);
+                // Стили для символов
+                let size, color;
                 
-                // Удаление сердечка после завершения анимации
+                if (randomSymbol === '❤') {
+                    size = Math.random() * 25 + 15; // Меньший размер
+                    color = 'rgba(255, 105, 180, 0.4)'; // Более прозрачный
+                } else { // 🖇️
+                    size = Math.random() * 20 + 12; // Меньший размер
+                    color = 'rgba(100, 100, 100, 0.3)'; // Более прозрачный
+                }
+                
+                symbol.style.left = Math.random() * 100 + 'vw';
+                symbol.style.fontSize = size + 'px';
+                symbol.style.color = color;
+                
+                // Длительность анимации
+                const duration = Math.random() * 30 + 25; // Медленнее
+                symbol.style.animationDuration = duration + 's';
+                
+                // Задержка начала
+                const delay = Math.random() * 10;
+                symbol.style.animationDelay = delay + 's';
+                
+                background.appendChild(symbol);
+                
+                // Удаление символа после завершения анимации
                 setTimeout(() => {
-                    if (heart.parentNode) {
-                        heart.remove();
+                    if (symbol.parentNode) {
+                        symbol.remove();
                     }
-                    createHeart();
-                }, parseFloat(heart.style.animationDuration) * 1000 + 1000);
+                    createSymbol();
+                }, (duration + delay) * 1000);
             }
             
-            // Инициализация сердечек
-            for (let i = 0; i < heartsCount; i++) {
-                createHeart();
+            // Создание начальных символов
+            for (let i = 0; i < symbolsCount; i++) {
+                setTimeout(createSymbol, i * 1500); // Постепенное появление
             }
             
-            // Оптимизация для мобильных устройств
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            if (isMobile) {
-                hearts.forEach(heart => {
-                    heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                });
-            }
+            // Запуск основного таймера
+            startTimer();
         });
         
-        // Защита от открытия в iframe (дополнительная мера)
-        if (window.self !== window.top) {
-            window.top.location = window.self.location;
+        // Основной таймер до 28 июня 2025 года
+        function startTimer() {
+            const timerElement = document.getElementById('timer');
+            const youtubeLink = document.getElementById('youtubeLink');
+            const timerVideoContainer = document.getElementById('timerVideoContainer');
+            const youtubeVideo = document.getElementById('youtubeVideo');
+            
+            // Дата свадьбы - 28 июня 2025 года, 15:00
+            const weddingDate = new Date('2025-06-28T15:00:00');
+            
+            // Проверка, прошла ли уже дата свадьбы
+            const now = new Date();
+            if (now >= weddingDate) {
+                // Если дата прошла, сразу показать видео
+                showVideo();
+                return;
+            }
+            
+            // Обновление таймера каждую секунду
+            const timerInterval = setInterval(updateTimer, 1000);
+            
+            // Первоначальное обновление
+            updateTimer();
+            
+            function updateTimer() {
+                const now = new Date();
+                const timeLeft = weddingDate - now;
+                
+                // Если время вышло
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showVideo();
+                    return;
+                }
+                
+                // Расчет оставшегося времени
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                // Форматирование времени
+                const formattedDays = days.toString().padStart(2, '0');
+                const formattedHours = hours.toString().padStart(2, '0');
+                const formattedMinutes = minutes.toString().padStart(2, '0');
+                const formattedSeconds = seconds.toString().padStart(2, '0');
+                
+                // Обновление таймера
+                timerElement.textContent = `${formattedDays}:${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+            }
+            
+            // Показать видео
+            function showVideo() {
+                // Скрыть таймер
+                timerElement.style.display = 'none';
+                document.querySelector('.timer-label').style.display = 'none';
+                
+                // Показать видео контейнер
+                timerVideoContainer.classList.add('show');
+                
+                // Установить видео с автовоспроизведением
+                youtubeVideo.src = "https://www.youtube.com/embed/FbVcmJBDeOo?autoplay=1&feature=shared";
+                
+                // Показать ссылку на YouTube
+                youtubeLink.style.display = "block";
+                
+                // Прокрутка к видео
+                timerVideoContainer.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
         }
         
-        // Защита от копирования контента
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+        // Плавная прокрутка при клике на индикатор
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            window.scrollTo({
+                top: document.querySelector('.section').offsetTop,
+                behavior: 'smooth'
+            });
         });
         
-        document.addEventListener('keydown', function(e) {
-            // Блокировка Ctrl+U, Ctrl+S, Ctrl+Shift+I и т.д.
-            if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S')) {
-                e.preventDefault();
+        // Скрытие индикатора прокрутки при скролле
+        window.addEventListener('scroll', function() {
+            const indicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                indicator.style.opacity = '0';
+            } else {
+                indicator.style.opacity = '0.6';
             }
         });
     </script>
