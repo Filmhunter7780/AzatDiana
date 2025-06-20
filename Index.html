@@ -13,12 +13,16 @@
             box-sizing: border-box;
         }
         
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #fff0f5 0%, #fff9f9 100%);
             color: #5d4037;
             height: 100vh;
-            overflow: hidden;
             position: relative;
             display: flex;
             justify-content: center;
@@ -39,8 +43,9 @@
         .heart {
             position: absolute;
             color: rgba(255, 192, 203, 0.6);
-            font-size: 32px;
+            font-size: 28px;
             animation: float 18s infinite linear;
+            pointer-events: none;
         }
         
         @keyframes float {
@@ -62,12 +67,13 @@
         
         .container {
             width: 95%;
-            max-width: 1000px;
+            max-width: 900px;
+            height: 95vh;
             max-height: 95vh;
             background: rgba(255, 255, 255, 0.97);
             border-radius: 25px;
             box-shadow: 0 25px 70px rgba(180, 90, 120, 0.3);
-            padding: 30px 40px;
+            padding: 20px 30px;
             text-align: center;
             position: relative;
             backdrop-filter: blur(5px);
@@ -78,16 +84,17 @@
         }
         
         .header {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            flex-shrink: 0;
         }
         
         .couple-frame {
-            width: 170px;
-            height: 170px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             margin: 0 auto;
-            border: 12px solid #f8e0e9;
-            box-shadow: 0 0 35px rgba(180, 90, 120, 0.3);
+            border: 10px solid #f8e0e9;
+            box-shadow: 0 0 30px rgba(180, 90, 120, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,7 +105,7 @@
         
         .couple-frame::before {
             content: "А&Д";
-            font-size: 90px;
+            font-size: 80px;
             font-weight: bold;
             color: rgba(255, 255, 255, 0.5);
             font-family: 'Playfair Display', serif;
@@ -106,16 +113,16 @@
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.8rem;
-            margin: 20px 0 10px;
+            font-size: 3.2rem;
+            margin: 15px 0 8px;
             color: #b76e79;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
         }
         
         .subtitle {
-            font-size: 1.9rem;
-            margin-bottom: 15px;
+            font-size: 1.7rem;
+            margin-bottom: 10px;
             color: #795548;
             font-weight: 500;
         }
@@ -124,25 +131,27 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             padding: 5px 0;
+            overflow: hidden;
         }
         
         .invitation {
-            font-size: 1.35rem;
-            line-height: 1.7;
-            margin: 15px 0 20px;
-            padding: 25px 30px;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin: 10px 0 15px;
+            padding: 20px;
             background: rgba(247, 232, 237, 0.65);
             border-radius: 20px;
             position: relative;
             font-weight: 500;
+            flex-shrink: 0;
         }
         
         .invitation::before, .invitation::after {
             content: """;
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 4rem;
             color: #e0b0b0;
             position: absolute;
             opacity: 0.5;
@@ -151,22 +160,23 @@
         
         .invitation::before {
             top: -15px;
-            left: 15px;
+            left: 10px;
         }
         
         .invitation::after {
-            bottom: -40px;
-            right: 15px;
+            bottom: -35px;
+            right: 10px;
             transform: rotate(180deg);
         }
         
         .upload-section {
-            margin: 10px 0 15px;
+            margin: 10px 0;
+            flex-shrink: 0;
         }
         
         .upload-title {
-            font-size: 1.6rem;
-            margin-bottom: 25px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             color: #b76e79;
             font-weight: 600;
         }
@@ -174,7 +184,7 @@
         .upload-buttons {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         
@@ -182,24 +192,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 40px;
-            border-radius: 60px;
-            font-size: 1.4rem;
+            padding: 16px 30px;
+            border-radius: 50px;
+            font-size: 1.3rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            min-width: 240px;
         }
         
         .btn:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
         
         .btn i {
-            margin-right: 15px;
-            font-size: 2rem;
+            margin-right: 12px;
+            font-size: 1.8rem;
         }
         
         .telegram {
@@ -214,10 +224,11 @@
         
         .date {
             margin-top: 15px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #795548;
             font-style: italic;
             font-weight: 500;
+            flex-shrink: 0;
         }
         
         .floral-border {
@@ -233,92 +244,93 @@
             content: "❀";
             position: absolute;
             color: #e0b0b0;
-            font-size: 36px;
+            font-size: 28px;
             opacity: 0.7;
         }
         
         .floral-border::before {
-            top: 25px;
-            left: 30px;
+            top: 15px;
+            left: 20px;
         }
         
         .floral-border::after {
-            bottom: 25px;
-            right: 30px;
+            bottom: 15px;
+            right: 20px;
             transform: rotate(180deg);
         }
         
         .footer {
-            margin-top: 15px;
-            font-size: 1.3rem;
+            margin-top: 10px;
+            font-size: 1.1rem;
             color: #a1887f;
             font-weight: 500;
+            flex-shrink: 0;
         }
         
         @media (max-width: 900px) {
             .container {
-                padding: 25px 30px;
-                max-height: 98vh;
-            }
-            
-            h1 {
-                font-size: 3.2rem;
-            }
-            
-            .couple-frame {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .couple-frame::before {
-                font-size: 75px;
-            }
-            
-            .subtitle {
-                font-size: 1.6rem;
-            }
-            
-            .btn {
-                min-width: 240px;
-                padding: 18px 35px;
-                font-size: 1.3rem;
-            }
-            
-            .invitation {
-                font-size: 1.2rem;
-                padding: 20px 25px;
-                margin: 15px 0 20px;
-            }
-            
-            .upload-title {
-                font-size: 1.4rem;
-            }
-            
-            .date {
-                font-size: 1.3rem;
-            }
-            
-            .footer {
-                font-size: 1.2rem;
-            }
-        }
-        
-        @media (max-width: 650px) {
-            .container {
-                padding: 20px 25px;
+                padding: 15px 20px;
+                height: 97vh;
             }
             
             h1 {
                 font-size: 2.8rem;
             }
             
+            .couple-frame {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .couple-frame::before {
+                font-size: 70px;
+            }
+            
             .subtitle {
                 font-size: 1.5rem;
             }
             
+            .btn {
+                min-width: 200px;
+                padding: 14px 25px;
+                font-size: 1.2rem;
+            }
+            
+            .invitation {
+                font-size: 1.15rem;
+                padding: 15px;
+                margin: 8px 0 12px;
+            }
+            
+            .upload-title {
+                font-size: 1.3rem;
+            }
+            
+            .date {
+                font-size: 1.2rem;
+            }
+            
+            .footer {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 650px) {
+            .container {
+                padding: 12px 15px;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
             .upload-buttons {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
             
             .btn {
@@ -327,78 +339,87 @@
             }
             
             .invitation::before, .invitation::after {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
             
             .floral-border::before, .floral-border::after {
-                font-size: 28px;
-            }
-            
-            .couple-frame {
-                width: 130px;
-                height: 130px;
-                border-width: 10px;
-            }
-            
-            .couple-frame::before {
-                font-size: 65px;
-            }
-            
-            .invitation {
-                font-size: 1.15rem;
-                line-height: 1.6;
-                padding: 20px 15px;
-            }
-            
-            .date {
-                font-size: 1.2rem;
-            }
-        }
-        
-        @media (max-height: 750px) {
-            .container {
-                padding: 20px 25px;
-            }
-            
-            h1 {
-                font-size: 3rem;
-                margin: 10px 0 5px;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-                margin-bottom: 10px;
+                font-size: 22px;
             }
             
             .couple-frame {
                 width: 120px;
                 height: 120px;
+                border-width: 8px;
+            }
+            
+            .couple-frame::before {
+                font-size: 60px;
             }
             
             .invitation {
-                font-size: 1.1rem;
-                margin: 10px 0 15px;
-                padding: 15px 20px;
-            }
-            
-            .upload-title {
-                font-size: 1.3rem;
-                margin-bottom: 15px;
-            }
-            
-            .btn {
-                padding: 15px 30px;
-                font-size: 1.2rem;
+                font-size: 1.05rem;
+                line-height: 1.5;
+                padding: 15px 10px;
             }
             
             .date {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .container {
+                padding: 10px 15px;
+                height: 98vh;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                margin: 8px 0 5px;
+            }
+            
+            .subtitle {
                 font-size: 1.2rem;
-                margin-top: 10px;
+                margin-bottom: 5px;
+            }
+            
+            .couple-frame {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .couple-frame::before {
+                font-size: 50px;
+            }
+            
+            .invitation {
+                font-size: 1rem;
+                margin: 5px 0 10px;
+                padding: 12px 10px;
+            }
+            
+            .upload-title {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+            
+            .btn {
+                padding: 12px 20px;
+                font-size: 1.1rem;
+            }
+            
+            .date {
+                font-size: 1rem;
+                margin-top: 8px;
             }
             
             .footer {
-                font-size: 1.1rem;
-                margin-top: 10px;
+                font-size: 0.9rem;
+                margin-top: 5px;
+            }
+            
+            .invitation::before, .invitation::after {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -445,7 +466,7 @@
         // Создание анимированных сердечек на фоне
         document.addEventListener('DOMContentLoaded', function() {
             const background = document.getElementById('backgroundAnimation');
-            const heartsCount = 25;
+            const heartsCount = 20;
             
             for (let i = 0; i < heartsCount; i++) {
                 createHeart();
@@ -458,9 +479,9 @@
                 
                 // Случайная позиция и задержка анимации
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 25 + 15) + 's';
+                heart.style.animationDuration = (Math.random() * 20 + 15) + 's';
                 heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.fontSize = (Math.random() * 25 + 20) + 'px';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
                 heart.style.opacity = 0.3 + Math.random() * 0.4;
                 
                 background.appendChild(heart);
@@ -474,8 +495,11 @@
         });
         
         // Гарантируем, что страница не будет прокручиваться
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
+        
         window.addEventListener('resize', function() {
+            document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
         });
     </script>
