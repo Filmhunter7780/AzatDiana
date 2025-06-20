@@ -2,20 +2,26 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; frame-src 'none';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="no-referrer">
     <title>Азат & Диана - Свадьба 28.08.2025</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
         
         html, body {
             height: 100%;
             overflow: hidden;
+            touch-action: manipulation;
         }
         
         body {
@@ -27,6 +33,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
         
         /* Анимированный фон */
@@ -46,6 +53,8 @@
             font-size: 28px;
             animation: float 18s infinite linear;
             pointer-events: none;
+            user-select: none;
+            will-change: transform;
         }
         
         @keyframes float {
@@ -118,6 +127,7 @@
             color: #b76e79;
             letter-spacing: 2px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+            line-height: 1.1;
         }
         
         .subtitle {
@@ -125,6 +135,7 @@
             margin-bottom: 10px;
             color: #795548;
             font-weight: 500;
+            line-height: 1.2;
         }
         
         .content {
@@ -146,6 +157,7 @@
             position: relative;
             font-weight: 500;
             flex-shrink: 0;
+            z-index: 1;
         }
         
         .invitation::before, .invitation::after {
@@ -154,8 +166,9 @@
             font-size: 4rem;
             color: #e0b0b0;
             position: absolute;
-            opacity: 0.5;
+            opacity: 0.3;
             line-height: 1;
+            z-index: -1;
         }
         
         .invitation::before {
@@ -200,6 +213,24 @@
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             min-width: 240px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
         }
         
         .btn:hover {
@@ -207,9 +238,16 @@
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
         
+        .btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
         .btn i {
             margin-right: 12px;
             font-size: 1.8rem;
+            position: relative;
+            z-index: 1;
         }
         
         .telegram {
@@ -238,6 +276,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 0;
         }
         
         .floral-border::before, .floral-border::after {
@@ -318,6 +357,7 @@
         @media (max-width: 650px) {
             .container {
                 padding: 12px 15px;
+                height: 98vh;
             }
             
             h1 {
@@ -396,6 +436,7 @@
                 font-size: 1rem;
                 margin: 5px 0 10px;
                 padding: 12px 10px;
+                line-height: 1.5;
             }
             
             .upload-title {
@@ -406,6 +447,7 @@
             .btn {
                 padding: 12px 20px;
                 font-size: 1.1rem;
+                min-width: auto;
             }
             
             .date {
@@ -420,6 +462,55 @@
             
             .invitation::before, .invitation::after {
                 font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-height: 600px) {
+            .container {
+                height: 99vh;
+                padding: 8px 12px;
+            }
+            
+            .couple-frame {
+                width: 80px;
+                height: 80px;
+                border-width: 6px;
+            }
+            
+            .couple-frame::before {
+                font-size: 40px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .invitation {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+                margin: 5px 0 8px;
+            }
+            
+            .upload-title {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+            
+            .date {
+                font-size: 0.9rem;
+            }
+            
+            .footer {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -447,10 +538,10 @@
             <div class="upload-section">
                 <div class="upload-title">Присылайте ваши фотографии</div>
                 <div class="upload-buttons">
-                    <a href="https://t.me/+OH28usM_1iNmOGUy" target="_blank" class="btn telegram">
+                    <a href="https://t.me/+OH28usM_1iNmOGUy" target="_blank" rel="noopener noreferrer" class="btn telegram">
                         <i class="fab fa-telegram"></i> Telegram
                     </a>
-                    <a href="https://chat.whatsapp.com/GiwdJV0xB629bkc2xE8IKX" target="_blank" class="btn whatsapp">
+                    <a href="https://chat.whatsapp.com/GiwdJV0xB629bkc2xE8IKX" target="_blank" rel="noopener noreferrer" class="btn whatsapp">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>
@@ -463,37 +554,6 @@
     </div>
 
     <script>
-        // Создание анимированных сердечек на фоне
-        document.addEventListener('DOMContentLoaded', function() {
-            const background = document.getElementById('backgroundAnimation');
-            const heartsCount = 20;
-            
-            for (let i = 0; i < heartsCount; i++) {
-                createHeart();
-            }
-            
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤';
-                
-                // Случайная позиция и задержка анимации
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 20 + 15) + 's';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                heart.style.opacity = 0.3 + Math.random() * 0.4;
-                
-                background.appendChild(heart);
-                
-                // Удаление сердечка после завершения анимации и создание нового
-                setTimeout(() => {
-                    heart.remove();
-                    createHeart();
-                }, parseFloat(heart.style.animationDuration) * 1000 + 1000);
-            }
-        });
-        
         // Гарантируем, что страница не будет прокручиваться
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
@@ -501,6 +561,66 @@
         window.addEventListener('resize', function() {
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
+        });
+        
+        // Оптимизированная анимация сердечек
+        document.addEventListener('DOMContentLoaded', function() {
+            const background = document.getElementById('backgroundAnimation');
+            const heartsCount = 15;
+            const hearts = [];
+            
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heart.style.opacity = 0.3 + Math.random() * 0.4;
+                
+                background.appendChild(heart);
+                hearts.push(heart);
+                
+                // Удаление сердечка после завершения анимации
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
+                    createHeart();
+                }, parseFloat(heart.style.animationDuration) * 1000 + 1000);
+            }
+            
+            // Инициализация сердечек
+            for (let i = 0; i < heartsCount; i++) {
+                createHeart();
+            }
+            
+            // Оптимизация для мобильных устройств
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                hearts.forEach(heart => {
+                    heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                });
+            }
+        });
+        
+        // Защита от открытия в iframe (дополнительная мера)
+        if (window.self !== window.top) {
+            window.top.location = window.self.location;
+        }
+        
+        // Защита от копирования контента
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            // Блокировка Ctrl+U, Ctrl+S, Ctrl+Shift+I и т.д.
+            if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S')) {
+                e.preventDefault();
+            }
         });
     </script>
 </body>
