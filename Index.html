@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Азат & Диана - Свадьба 28.08.2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff0f5 0%, #fff9f9 100%);
+            color: #5d4037;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Анимированный фон */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 192, 203, 0.6);
+            font-size: 32px;
+            animation: float 18s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            width: 95%;
+            max-width: 1000px;
+            max-height: 95vh;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(180, 90, 120, 0.3);
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .header {
+            margin-bottom: 15px;
+        }
+        
+        .couple-frame {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 12px solid #f8e0e9;
+            box-shadow: 0 0 35px rgba(180, 90, 120, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .couple-frame::before {
+            content: "А&Д";
+            font-size: 90px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            margin: 20px 0 10px;
+            color: #b76e79;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+        }
+        
+        .subtitle {
+            font-size: 1.9rem;
+            margin-bottom: 15px;
+            color: #795548;
+            font-weight: 500;
+        }
+        
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        
+        .invitation {
+            font-size: 1.35rem;
+            line-height: 1.7;
+            margin: 15px 0 20px;
+            padding: 25px 30px;
+            background: rgba(247, 232, 237, 0.65);
+            border-radius: 20px;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .invitation::before, .invitation::after {
+            content: """;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: #e0b0b0;
+            position: absolute;
+            opacity: 0.5;
+            line-height: 1;
+        }
+        
+        .invitation::before {
+            top: -15px;
+            left: 15px;
+        }
+        
+        .invitation::after {
+            bottom: -40px;
+            right: 15px;
+            transform: rotate(180deg);
+        }
+        
+        .upload-section {
+            margin: 10px 0 15px;
+        }
+        
+        .upload-title {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: #b76e79;
+            font-weight: 600;
+        }
+        
+        .upload-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 40px;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            min-width: 280px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+        
+        .btn i {
+            margin-right: 15px;
+            font-size: 2rem;
+        }
+        
+        .telegram {
+            background: linear-gradient(135deg, #0088cc, #2aabee);
+            color: white;
+        }
+        
+        .whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+        }
+        
+        .date {
+            margin-top: 15px;
+            font-size: 1.5rem;
+            color: #795548;
+            font-style: italic;
+            font-weight: 500;
+        }
+        
+        .floral-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .floral-border::before, .floral-border::after {
+            content: "❀";
+            position: absolute;
+            color: #e0b0b0;
+            font-size: 36px;
+            opacity: 0.7;
+        }
+        
+        .floral-border::before {
+            top: 25px;
+            left: 30px;
+        }
+        
+        .floral-border::after {
+            bottom: 25px;
+            right: 30px;
+            transform: rotate(180deg);
+        }
+        
+        .footer {
+            margin-top: 15px;
+            font-size: 1.3rem;
+            color: #a1887f;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                padding: 25px 30px;
+                max-height: 98vh;
+            }
+            
+            h1 {
+                font-size: 3.2rem;
+            }
+            
+            .couple-frame {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .couple-frame::before {
+                font-size: 75px;
+            }
+            
+            .subtitle {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                min-width: 240px;
+                padding: 18px 35px;
+                font-size: 1.3rem;
+            }
+            
+            .invitation {
+                font-size: 1.2rem;
+                padding: 20px 25px;
+                margin: 15px 0 20px;
+            }
+            
+            .upload-title {
+                font-size: 1.4rem;
+            }
+            
+            .date {
+                font-size: 1.3rem;
+            }
+            
+            .footer {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 650px) {
+            .container {
+                padding: 20px 25px;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .upload-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .invitation::before, .invitation::after {
+                font-size: 3.5rem;
+            }
+            
+            .floral-border::before, .floral-border::after {
+                font-size: 28px;
+            }
+            
+            .couple-frame {
+                width: 130px;
+                height: 130px;
+                border-width: 10px;
+            }
+            
+            .couple-frame::before {
+                font-size: 65px;
+            }
+            
+            .invitation {
+                font-size: 1.15rem;
+                line-height: 1.6;
+                padding: 20px 15px;
+            }
+            
+            .date {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-height: 750px) {
+            .container {
+                padding: 20px 25px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+                margin: 10px 0 5px;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            
+            .couple-frame {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .invitation {
+                font-size: 1.1rem;
+                margin: 10px 0 15px;
+                padding: 15px 20px;
+            }
+            
+            .upload-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+            }
+            
+            .date {
+                font-size: 1.2rem;
+                margin-top: 10px;
+            }
+            
+            .footer {
+                font-size: 1.1rem;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Анимированный фон с сердечками -->
+    <div class="background-animation" id="backgroundAnimation"></div>
+    
+    <div class="container">
+        <div class="floral-border"></div>
+        
+        <div class="header">
+            <div class="couple-frame"></div>
+            <h1>Азат & Диана</h1>
+            <div class="subtitle">28 августа 2025 года</div>
+        </div>
+        
+        <div class="content">
+            <div class="invitation">
+                Дорогие друзья и родные! Спасибо, что были с нами в этот особенный день. 
+                Пожалуйста, делитесь своими фотографиями с нашего праздника через кнопки ниже. 
+                Каждый ваш снимок для нас бесценен и сохранит память о самых важных моментах!
+            </div>
+            
+            <div class="upload-section">
+                <div class="upload-title">Присылайте ваши фотографии</div>
+                <div class="upload-buttons">
+                    <a href="https://t.me/+OH28usM_1iNmOGUy" target="_blank" class="btn telegram">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                    <a href="https://chat.whatsapp.com/GiwdJV0xB629bkc2xE8IKX" target="_blank" class="btn whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <div class="date">Мы поженились 28 августа 2025 года</div>
+        </div>
+        
+        <div class="footer">С любовью, Азат и Диана</div>
+    </div>
+
+    <script>
+        // Создание анимированных сердечек на фоне
+        document.addEventListener('DOMContentLoaded', function() {
+            const background = document.getElementById('backgroundAnimation');
+            const heartsCount = 25;
+            
+            for (let i = 0; i < heartsCount; i++) {
+                createHeart();
+            }
+            
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                // Случайная позиция и задержка анимации
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 25 + 15) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 25 + 20) + 'px';
+                heart.style.opacity = 0.3 + Math.random() * 0.4;
+                
+                background.appendChild(heart);
+                
+                // Удаление сердечка после завершения анимации и создание нового
+                setTimeout(() => {
+                    heart.remove();
+                    createHeart();
+                }, parseFloat(heart.style.animationDuration) * 1000 + 1000);
+            }
+        });
+        
+        // Гарантируем, что страница не будет прокручиваться
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('resize', function() {
+            document.body.style.overflow = 'hidden';
+        });
+    </script>
+</body>
+</html>
