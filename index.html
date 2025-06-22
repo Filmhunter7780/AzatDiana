@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Азат & Диана - Свадьба 28.06.2025</title>
+    <title>Азат & Диана - Свадьба 27.06.2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -437,13 +437,13 @@
                 padding: 20px;
             }
             
+            .timer-title {
+                font-size: 1.5rem;
+            }
+            
             #timer {
                 font-size: 2.8rem;
                 padding: 12px 25px;
-            }
-            
-            .timer-title {
-                font-size: 1.5rem;
             }
         }
         
@@ -551,7 +551,7 @@
         <div class="header">
             <div class="couple-frame"></div>
             <h1>Азат & Диана</h1>
-            <div class="subtitle">28 июня 2025 года</div>
+            <div class="subtitle">27 июня 2025 года</div>
         </div>
         
         <div class="section">
@@ -573,7 +573,7 @@
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
-            <div class="date">Мы поженились 28 июня 2025 года</div>
+            <div class="date">Мы поженились 27 июня 2025 года</div>
         </div>
         
         <!-- Love Story Section -->
@@ -581,7 +581,8 @@
             <h2 class="section-title">Наше Love Story</h2>
             <div class="lovestory-content">
                 <div class="timer-container">
-                    <div class="timer-title">Видео будет доступно через:</div>
+                    <!-- Обновленная надпись с указанием времени -->
+                    <div class="timer-title">Видео будет доступно 27.06.2025 в 22:00 (Актобе)</div>
                     <div id="timer">00:00:00</div>
                     <div class="timer-label">дней : часов : минут : секунд</div>
                     
@@ -661,20 +662,19 @@
             startTimer();
         });
         
-        // Основной таймер до 28 июня 2025 года
+        // Основной таймер до 27 июня 2025 года 22:00 UTC+5
         function startTimer() {
             const timerElement = document.getElementById('timer');
             const youtubeLink = document.getElementById('youtubeLink');
             const timerVideoContainer = document.getElementById('timerVideoContainer');
             const youtubeVideo = document.getElementById('youtubeVideo');
             
-            // Дата свадьбы - 28 июня 2025 года, 15:00
-            const weddingDate = new Date('2025-06-28T15:00:00');
+            // Дата свадьбы - 27 июня 2025 года, 22:00 UTC+5 (Актобе)
+            const weddingDate = new Date('2025-06-27T22:00:00+05:00');
             
             // Проверка, прошла ли уже дата свадьбы
             const now = new Date();
             if (now >= weddingDate) {
-                // Если дата прошла, сразу показать видео
                 showVideo();
                 return;
             }
