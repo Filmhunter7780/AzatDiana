@@ -249,6 +249,30 @@
             color: white;
         }
         
+        .unmute-btn {
+            background: #b76e79;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+            margin: 15px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .unmute-btn:hover {
+            background: #a05a65;
+            transform: translateY(-3px);
+        }
+        
+        .unmute-btn i {
+            margin-right: 10px;
+        }
+        
         .date {
             margin-top: 20px;
             font-size: 1.8rem;
@@ -365,6 +389,11 @@
                 font-size: 1.4rem;
             }
             
+            .unmute-btn {
+                padding: 10px 20px;
+                font-size: 1.1rem;
+            }
+            
             .invitation {
                 font-size: 1.3rem;
             }
@@ -444,6 +473,11 @@
                 font-size: 1.2rem;
             }
             
+            .unmute-btn {
+                padding: 8px 15px;
+                font-size: 1rem;
+            }
+            
             .invitation {
                 font-size: 1.1rem;
             }
@@ -496,8 +530,12 @@
             <h2 class="section-title">Наше Love Story</h2>
             <div class="lovestory-content">
                 <div class="video-container">
-                    <iframe id="youtubeVideo" src="https://www.youtube.com/embed/gHa7QRJux0s?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe id="youtubeVideo" src="https://www.youtube.com/embed/gHa7QRJux0s?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                
+                <button id="unmuteButton" class="unmute-btn">
+                    <i class="fas fa-volume-mute"></i> Включить звук
+                </button>
                 
                 <div class="lovestory-link">
                     <a href="https://youtu.be/gHa7QRJux0s?si=yZr2xukZTaBYFvnu" target="_blank" rel="noopener noreferrer" class="btn youtube">
@@ -512,6 +550,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Анимированный фон
             const background = document.getElementById('backgroundAnimation');
             const symbolsCount = 15;
             
@@ -556,22 +595,54 @@
             for (let i = 0; i < symbolsCount; i++) {
                 setTimeout(createSymbol, i * 1500);
             }
-        });
-        
-        document.querySelector('.scroll-indicator').addEventListener('click', function() {
-            window.scrollTo({
-                top: document.querySelector('.section').offsetTop,
-                behavior: 'smooth'
+            
+            // Управление звуком видео
+            const videoIframe = document.getElementById('youtubeVideo');
+            const unmuteButton = document.getElementById('unmuteButton');
+            
+            // Показываем кнопку через 2 секунды после загрузки
+            setTimeout(() => {
+                unmuteButton.style.display = 'block';
+            }, 2000);
+            
+            unmuteButton.addEventListener('click', function() {
+                try {
+                    videoIframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                    unmuteButton.innerHTML = '<i class="fas fa-volume-up"></i> Звук включен';
+                    unmuteButton.style.background = '#25d366';
+                    unmuteButton.style.boxShadow = '0 5px 15px rgba(37, 211, 102, 0.3)';
+                    
+                    // Скрываем кнопку через 3 секунды
+                    setTimeout(() => {
+                        unmuteButton.style.opacity = '0';
+                        setTimeout(() => {
+                            unmuteButton.style.display = 'none';
+                        }, 300);
+                    }, 3000);
+                } catch(e) {
+                    console.error("Ошибка включения звука:", e);
+                    unmuteButton.innerHTML = '<i class="fas fa-exclamation-circle"></i> Ошибка';
+                    unmuteButton.style.background = '#ff0000';
+                }
             });
-        });
-        
-        window.addEventListener('scroll', function() {
-            const indicator = document.querySelector('.scroll-indicator');
-            if (window.scrollY > 100) {
-                indicator.style.opacity = '0';
-            } else {
-                indicator.style.opacity = '0.6';
-            }
+            
+            // Прокрутка при клике на индикатор
+            document.querySelector('.scroll-indicator').addEventListener('click', function() {
+                window.scrollTo({
+                    top: document.querySelector('.section').offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Скрытие индикатора прокрутки
+            window.addEventListener('scroll', function() {
+                const indicator = document.querySelector('.scroll-indicator');
+                if (window.scrollY > 100) {
+                    indicator.style.opacity = '0';
+                } else {
+                    indicator.style.opacity = '0.6';
+                }
+            });
         });
     </script>
 </body>
